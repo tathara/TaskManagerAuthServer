@@ -1,8 +1,8 @@
 import Express from 'express';
+import path from 'path';
 import db from './db/db.js';
 import ServerAuthorization from './authorization.js';
 import getDirname from './dirname.js';
-import path from 'path';
 
 const server = new Express();
 const authorization = new ServerAuthorization();
