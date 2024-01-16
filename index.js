@@ -7,18 +7,18 @@ import path from 'path';
 
 const server = new Express();
 const authorization = new ServerAuthorization();
-const port = process.env.PORT || 8080;
-const authorizationPath = path.join(getDirname(), 'form/html/authorization.html');
-const registrationPath = path.join(getDirname(), 'form/html/registration.html');
+const port = process.env.PORT;
+const authorizationPath = path.join(getDirname(), 'public/html/authorization.html');
+const registrationPath = path.join(getDirname(), 'public/html/registration.html');
 
 server.use(Express.json());
 server.use(Express.urlencoded({ extended: true }));
-server.use(Express.static(path.join(getDirname(), 'form/')));
 
 server.get('/authorization', async (req, res) => {
     try {
         const form = await fsp.readFile(authorizationPath, 'utf8');
         await res.status(200);
+        res.setHeader('Content-Type', 'text/html');
         await res.send(form);
     }
     catch (error) {
@@ -47,6 +47,7 @@ server.get('/registration', async (req, res) => {
     try {
         const form = await fsp.readFile(registrationPath, 'utf8');
         await res.status(200);
+        res.setHeader('Content-Type', 'text/html');
         await res.send(form);
     }
     catch (error) {
