@@ -1,25 +1,25 @@
 import Express from 'express';
 import db from './db/db.js';
 import ServerAuthorization from './authorization.js';
-import fsp from 'fs/promises';
 import getDirname from './dirname.js';
 import path from 'path';
 
 const server = new Express();
 const authorization = new ServerAuthorization();
 const port = process.env.PORT;
-const authorizationPath = path.join(getDirname(), 'public/html/authorization.html');
-const registrationPath = path.join(getDirname(), 'public/html/registration.html');
+const htmlPath = path.join(getDirname(), 'public/html');
 
 server.use(Express.json());
 server.use(Express.urlencoded({ extended: true }));
+server.use(Express.static('public'));
+
+export default server;
 
 server.get('/authorization', async (req, res) => {
     try {
-        const form = await fsp.readFile(authorizationPath, 'utf8');
         await res.status(200);
         res.setHeader('Content-Type', 'text/html');
-        await res.send(form);
+        await res.sendFile('authorization.html', { root: htmlPath });
     }
     catch (error) {
         await res.status(404);
@@ -45,10 +45,9 @@ server.post('/authorization', async (req, res) => {
 
 server.get('/registration', async (req, res) => {
     try {
-        const form = await fsp.readFile(registrationPath, 'utf8');
         await res.status(200);
         res.setHeader('Content-Type', 'text/html');
-        await res.send(form);
+        await res.sendFile('registration.html', { root: htmlPath });
     }
     catch (error) {
         await res.status(404);
