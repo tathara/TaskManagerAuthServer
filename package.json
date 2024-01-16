@@ -1,5 +1,5 @@
 {
-  "name": "cirus",
+  "name": "task-manager-auth-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "node": "20.x"
   },
   "scripts": {
-    "build": "node --env-file .env index.js",
+    "build": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
