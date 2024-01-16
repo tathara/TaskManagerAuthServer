@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "enjines": {
+    "node": "20.x"
+  },
   "scripts": {
-    "build": "node index.js",
+    "build": "node --env-file .env index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],

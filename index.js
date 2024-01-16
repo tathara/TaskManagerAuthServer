@@ -3,16 +3,17 @@ import db from './db/db.js';
 import ServerAuthorization from './authorization.js';
 import fsp from 'fs/promises';
 import getDirname from './dirname.js';
+import path from 'path';
 
 const server = new Express();
 const authorization = new ServerAuthorization();
 const port = process.env.PORT || 8080;
-const authorizationPath = getDirname() + '/form/html/authorization.html';
-const registrationPath = getDirname() + '/form/html/registration.html';
+const authorizationPath = path.join(getDirname() + '/form/html/authorization.html');
+const registrationPath = path.join(getDirname() + '/form/html/registration.html');
 
 server.use(Express.json());
 server.use(Express.urlencoded({ extended: true }));
-server.use(Express.static(getDirname() + '/server/form'));
+server.use(Express.static(path.join(getDirname() + '/form')));
 
 server.get('/authorization', async (req, res) => {
     try {
