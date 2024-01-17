@@ -58,8 +58,8 @@ input {
     height: 13px;
 }
 
-button.sign-in,
-button.sign-up {
+button#sign-in,
+button#sign-up {
     background-color: #0088cc;
     color: var(--tg-theme-button-text-color);
     border: none;
@@ -70,8 +70,8 @@ button.sign-up {
     cursor: pointer;
 }
 
-button.sign-in:hover,
-button.sign-up:hover {
+button#sign-in:hover,
+button#sign-up:hover {
     background-color: #006699;
 }
 
