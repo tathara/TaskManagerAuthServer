@@ -5,7 +5,8 @@ const tg = window.Telegram.WebApp;
 
 function dispatch(endpoint) {
     const data = getData();
-    if (isValidData) {
+    
+    if (isValidData()) {
         axios.post(endpoint, data).then(res => tg.sendData(res.data)).catch('Ошибка при выполнении POST запроса на эдпоинт ' + endpoint);
     }
 }
