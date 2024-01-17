@@ -4,9 +4,9 @@ import isValidData from "./validation.js";
 const tg = window.Telegram.WebApp;
 
 function dispatch(endpoint) {
-    const data = getData();
-    
     if (isValidData()) {
+        const data = getData();
+
         axios.post(endpoint, data).then(res => tg.sendData(res.data)).catch('Ошибка при выполнении POST запроса на эдпоинт ' + endpoint);
     }
 }
@@ -18,7 +18,10 @@ function getData() {
     const fields = form.querySelectorAll('input, select, textarea');
 
     Array.from(fields).map(field => {
-        data[field] = field.value;
+        const fieldName = field.getAttribute('name');
+        const fieldValue = field.value.trim();
+
+        data[fieldName] = fieldValue;
     });
 
     return data;
