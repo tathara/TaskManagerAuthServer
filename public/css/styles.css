@@ -1,13 +1,13 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--tg-theme-bg-color);
     margin: 0;
 }
 
 #form {
     max-width: 400px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: var(--tg-theme-bg-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -34,7 +34,7 @@ input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--tg-theme-bg-color);
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
@@ -56,8 +56,8 @@ input {
 
 button.sign-in,
 button.sign-up {
-    background-color: #0088cc;
-    color: #fff;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-text-color);
     border: none;
     padding: 10px;
     margin-top: 16px;
@@ -68,7 +68,7 @@ button.sign-up {
 
 button.sign-in:hover,
 button.sign-up:hover {
-    background-color: #006699;
+    background-color: var(--tg-theme-button-color);
 }
 
 .error-message {
@@ -78,7 +78,7 @@ button.sign-up:hover {
     transform: translateX(-50%);
     padding: 15px 20px;
     background-color: #ff5252;
-    color: #fff;
+    color: var(--tg-theme-text-color);
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: none;

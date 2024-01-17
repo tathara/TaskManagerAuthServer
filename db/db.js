@@ -7,6 +7,5 @@ export default new Sequelize(process.env.POSTGRES_URL, {
             require: true,
             rejectUnauthorized: false
         }
-
     }
 });
