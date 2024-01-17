@@ -14,6 +14,8 @@ if (tg) {
     console.log('Telegram.WebApp загружен!');
 }
 
+tg.sendData('test');
+
 async function dispatch(endpoint) {
     if (isValidData()) {
         const data = getData();
