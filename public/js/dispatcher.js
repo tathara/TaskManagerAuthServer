@@ -1,4 +1,4 @@
-import { axios } from 'https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js'
+import axios from 'axios';
 import isValidData from "./validation.js";
 
 const tg = window.Telegram.WebApp;
