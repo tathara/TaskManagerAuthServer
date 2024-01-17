@@ -14,14 +14,12 @@ if (tg) {
     console.log('Telegram.WebApp загружен!');
 }
 
-tg.sendData('test');
-
 async function dispatch(endpoint) {
     if (isValidData()) {
         const data = getData();
 
         const response = await axios.post(endpoint, data);
-        tg.sendData(response.data);
+        await tg.sendData(JSON.stringify(response.data));
     }
 }
 
