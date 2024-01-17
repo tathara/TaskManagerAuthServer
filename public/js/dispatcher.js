@@ -1,4 +1,3 @@
-import axios from 'axios';
 import isValidData from "./validation.js";
 
 const tg = window.Telegram.WebApp;
