@@ -5,20 +5,21 @@ const authorizationButton = document.getElementById('authorization');
 const registrationButton = document.getElementById('registration');
 
 if (authorizationButton) {
-    authorizationButton.addEventListener('click', (e) => dispatch('/authorization'));
+    authorizationButton.addEventListener('click', () => dispatch('/authorization'));
 } else if (registrationButton) {
-    registrationButton.addEventListener('click', (e) => dispatch('/registration'));
+    registrationButton.addEventListener('click', () => dispatch('/registration'));
 }
 
 if (tg) {
     console.log('Telegram.WebApp загружен!');
 }
 
-function dispatch(endpoint) {
+async function dispatch(endpoint) {
     if (isValidData()) {
         const data = getData();
 
-        axios.post(endpoint, data).then(res => tg.sendData(res.data)).catch(error => console.log('Ошибка при выполнении POST запроса на эдпоинт ' + endpoint + '\n' + error));
+        const response = await axios.post(endpoint, data);
+        tg.sendData(response.data);
     }
 }
 
