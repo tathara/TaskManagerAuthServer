@@ -29,12 +29,12 @@ server.get('/authorization', async (req, res) => {
 
 server.post('/authorization', async (req, res) => {
     try {
-        const data = req.body.data;
-        console.log(req.body.data);
+        const data = req.body;
+        console.log(req.body);
 
         const user = await authorization.authorizeUser(data);
-        console.log(user);
-        res.send(JSON.stringify(user));
+        console.log(user.dataValues);
+        res.send(JSON.stringify(user.dataValues));
     }
     catch (error) {
         res.status(500).json({ error: error.message });
@@ -55,12 +55,12 @@ server.get('/registration', async (req, res) => {
 
 server.post('/registration', async (req, res) => {
     try {
-        const data = req.body.data;
-        console.log(req.body.data);
+        const data = req.body;
+        console.log(req.body);
 
         const user = await authorization.registerUser(data);
-        console.log(data);
-        res.send(JSON.stringify(user));
+        console.log(user.dataValues);
+        res.send(JSON.stringify(user.dataValues));
     }
     catch (error) {
         res.status(500).json({ error: error.message });
