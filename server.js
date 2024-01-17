@@ -29,10 +29,8 @@ server.get('/authorization', async (req, res) => {
 
 server.post('/authorization', async (req, res) => {
     try {
-        const data = {
-            login: req.body.login,
-            password: req.body.password
-        }
+        const data = req.body.data;
+        console.log(req.body.data);
 
         const user = await authorization.authorizeUser(data);
         console.log(user);
@@ -57,13 +55,8 @@ server.get('/registration', async (req, res) => {
 
 server.post('/registration', async (req, res) => {
     try {
-        const data = {
-            fullName: req.body.fullName,
-            login: req.body.login,
-            password: req.body.password,
-            organization: req.body.organization,
-            role: req.body.role
-        }
+        const data = req.body.data;
+        console.log(req.body.data);
 
         const user = await authorization.registerUser(data);
         console.log(data);

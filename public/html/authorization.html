@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="https://fontawesome.com/icons/telegram?f=brands&s=solid" type="image/x-icon">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="/js/validation.js" defer></script>
+    <script src="../js/validation.js" defer></script>
+    <script src="../js/dispatcher.js" defer></script>
 </head>
 
 <body>
     <div id="form">
-        <form method="post" action="/authorization">
+        <form>
             <legend>Авторизация</legend>
 
             <div class="login input-control">
@@ -27,7 +28,7 @@
                 <div class="error"></div>
             </div>
 
-            <button type="submit" class="sign-in" value="Add">Войти</button>
+            <button type="button" class="sign-in" onclick="dispatch()">Войти</button>
         </form>
     </div>
 </body>

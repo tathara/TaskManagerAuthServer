@@ -1,18 +1,6 @@
 const form = document.querySelector('form');
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    if (isValidData()) {
-        console.log('Form is valid. Submitting...');
-        form.submit();
-    }
-    else {
-        console.log('Form is unvalid!');
-    }
-});
-
-function isValidData() {
+export default function isValidData() {
     const fields = form.querySelectorAll('input, select, textarea');
     const isValid = getValidationStatus(fields);
 
