@@ -6,7 +6,7 @@ if (tg) {
     console.log('Telegram.WebApp загружен!');
 }
 
-function dispatch(endpoint) {
+export default function dispatch(endpoint) {
     if (isValidData()) {
         const data = getData();
 
